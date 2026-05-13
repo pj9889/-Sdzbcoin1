@@ -10,56 +10,66 @@
             margin: 0;
             padding: 0;
             height: 100%;
+            width: 100%;
             overflow: hidden;
             font-family: 'Arial', sans-serif;
+            background-color: #000;
         }
 
-        /* ব্যাকগ্রাউন্ড ইমেজ (ডিসপ্লে জুড়ে) */
-        .bg-container {
-            background-image: url('z1.jpg'); /* আপনার ছবির নাম z1 (নিশ্চিত করুন ফরম্যাটটি .jpg বা .png কিনা) */
+        /* ব্যাকগ্রাউন্ড ইমেজ কন্টেইনার */
+        .full-bg {
+            background-image: url('z1.webp'); /* আপনার ফাইল নাম z1.webp */
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            height: 100%;
-            width: 100%;
+            height: 100vh;
+            width: 100vw;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         /* বাটন ডিজাইন */
-        .cta-button {
+        .cta-btn {
             background-color: #FF0000; /* লাল কালার */
             color: white;
-            padding: 18px 50px;
-            font-size: 24px;
+            padding: 20px 60px;
+            font-size: 26px;
             font-weight: bold;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             text-decoration: none;
             cursor: pointer;
-            transition: background-color 0.2s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.1s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            display: inline-block;
+            user-select: none;
         }
 
-        /* ক্লিক করার মুহূর্তের কালার */
-        .cta-button:active {
-            background-color: #FFFF00 !important; /* হলুদ কালার */
-            color: black;
+        /* ক্লিক করলে বাটন হলুদ হবে */
+        .cta-btn:active {
+            background-color: #FFFF00 !important; /* হলুদ */
+            color: #000 !important;
+            transform: scale(0.95);
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-container">
-        <!-- বাটন এবং লিংক -->
-        <a href="https://Sdzbcoin.pages.dev" class="cta-button" id="startBtn">শুরু করুন</a>
+    <div class="full-bg">
+        <!-- বাটন এবং ডাইরেক্ট লিংক -->
+        <a href="https://Sdzbcoin.pages.dev" class="cta-btn" id="startBtn">শুরু করুন</a>
     </div>
 
     <script>
-        // ক্লিক করার সাথে সাথে কালার পরিবর্তনের জন্য ছোট স্ক্রিপ্ট
+        // ক্লিক করার সাথে সাথে কালার চেঞ্জ নিশ্চিত করার জন্য
         const btn = document.getElementById('startBtn');
-        btn.addEventListener('click', function() {
+        btn.addEventListener('mousedown', function() {
+            this.style.backgroundColor = '#FFFF00';
+            this.style.color = '#000';
+        });
+        
+        btn.addEventListener('touchstart', function() {
             this.style.backgroundColor = '#FFFF00';
             this.style.color = '#000';
         });
