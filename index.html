@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>স্বাগতম - অফিসিয়াল পোর্টাল</title>
+    <title>স্বাগতম</title>
     <style>
-        /* পুরো স্ক্রিন সেটআপ */
         body, html {
             margin: 0;
             padding: 0;
@@ -13,12 +12,10 @@
             width: 100%;
             overflow: hidden;
             font-family: 'Arial', sans-serif;
-            background-color: #000;
         }
 
-        /* ব্যাকগ্রাউন্ড ইমেজ কন্টেইনার */
         .full-bg {
-            background-image: url('z1.webp'); /* আপনার ফাইল নাম z1.webp */
+            background-image: url('z1.webp');
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -26,53 +23,52 @@
             width: 100vw;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end; /* বাটনটি নিচে রাখার জন্য */
+            padding-bottom: 80px; /* নিচ থেকে দূরত্ব */
         }
 
-        /* বাটন ডিজাইন */
         .cta-btn {
-            background-color: #FF0000; /* লাল কালার */
+            background-color: #FF0000;
             color: white;
             padding: 20px 60px;
             font-size: 26px;
             font-weight: bold;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             text-decoration: none;
             cursor: pointer;
-            transition: transform 0.1s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
             display: inline-block;
-            user-select: none;
+            transition: transform 0.2s ease;
+            animation: popup 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* পপআপ অ্যানিমেশন */
         }
 
-        /* ক্লিক করলে বাটন হলুদ হবে */
+        @keyframes popup {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
         .cta-btn:active {
-            background-color: #FFFF00 !important; /* হলুদ */
+            background-color: #FFFF00 !important;
             color: #000 !important;
-            transform: scale(0.95);
+            transform: scale(0.9);
         }
     </style>
 </head>
 <body>
 
     <div class="full-bg">
-        <!-- বাটন এবং ডাইরেক্ট লিংক -->
         <a href="https://Sdzbcoin.pages.dev" class="cta-btn" id="startBtn">শুরু করুন</a>
     </div>
 
     <script>
-        // ক্লিক করার সাথে সাথে কালার চেঞ্জ নিশ্চিত করার জন্য
         const btn = document.getElementById('startBtn');
-        btn.addEventListener('mousedown', function() {
-            this.style.backgroundColor = '#FFFF00';
-            this.style.color = '#000';
-        });
-        
-        btn.addEventListener('touchstart', function() {
-            this.style.backgroundColor = '#FFFF00';
-            this.style.color = '#000';
-        });
+        const changeColor = () => {
+            btn.style.backgroundColor = '#FFFF00';
+            btn.style.color = '#000';
+        };
+        btn.addEventListener('mousedown', changeColor);
+        btn.addEventListener('touchstart', changeColor);
     </script>
 
 </body>
