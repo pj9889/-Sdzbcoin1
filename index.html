@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>স্বাগতম</title>
+    <title>স্বাগতম - অফিসিয়াল পোর্টাল</title>
     <style>
         body, html {
             margin: 0;
@@ -23,8 +23,11 @@
             width: 100vw;
             display: flex;
             justify-content: center;
-            align-items: flex-end; /* বাটনটি নিচে রাখার জন্য */
-            padding-bottom: 80px; /* নিচ থেকে দূরত্ব */
+            align-items: center;
+        }
+
+        .button-container {
+            margin-top: 150px; /* পজিশন সামান্য নিচে করার জন্য */
         }
 
         .cta-btn {
@@ -37,38 +40,42 @@
             border-radius: 12px;
             text-decoration: none;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
             display: inline-block;
-            transition: transform 0.2s ease;
-            animation: popup 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* পপআপ অ্যানিমেশন */
+            animation: pulse-popup 1.5s infinite; /* নড়াচড়া ও পপআপ অ্যানিমেশন */
+            transition: background-color 0.1s;
         }
 
-        @keyframes popup {
-            0% { transform: scale(0); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+        @keyframes pulse-popup {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
         .cta-btn:active {
             background-color: #FFFF00 !important;
             color: #000 !important;
-            transform: scale(0.9);
+            animation: none;
+            transform: scale(0.95);
         }
     </style>
 </head>
 <body>
 
     <div class="full-bg">
-        <a href="https://Sdzbcoin.pages.dev" class="cta-btn" id="startBtn">শুরু করুন</a>
+        <div class="button-container">
+            <a href="https://Sdzbcoin.pages.dev" class="cta-btn" id="startBtn">শুরু করুন</a>
+        </div>
     </div>
 
     <script>
         const btn = document.getElementById('startBtn');
-        const changeColor = () => {
+        const trigger = () => {
             btn.style.backgroundColor = '#FFFF00';
             btn.style.color = '#000';
         };
-        btn.addEventListener('mousedown', changeColor);
-        btn.addEventListener('touchstart', changeColor);
+        btn.addEventListener('mousedown', trigger);
+        btn.addEventListener('touchstart', trigger);
     </script>
 
 </body>
