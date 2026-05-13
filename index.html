@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>স্বাগতম - অফিসিয়াল পোর্টাল</title>
+    <style>
+        /* পুরো স্ক্রিন সেটআপ */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* ব্যাকগ্রাউন্ড ইমেজ (ডিসপ্লে জুড়ে) */
+        .bg-container {
+            background-image: url('z1.jpg'); /* আপনার ছবির নাম z1 (নিশ্চিত করুন ফরম্যাটটি .jpg বা .png কিনা) */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* বাটন ডিজাইন */
+        .cta-button {
+            background-color: #FF0000; /* লাল কালার */
+            color: white;
+            padding: 18px 50px;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* ক্লিক করার মুহূর্তের কালার */
+        .cta-button:active {
+            background-color: #FFFF00 !important; /* হলুদ কালার */
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-container">
+        <!-- বাটন এবং লিংক -->
+        <a href="https://Sdzbcoin.pages.dev" class="cta-button" id="startBtn">শুরু করুন</a>
+    </div>
+
+    <script>
+        // ক্লিক করার সাথে সাথে কালার পরিবর্তনের জন্য ছোট স্ক্রিপ্ট
+        const btn = document.getElementById('startBtn');
+        btn.addEventListener('click', function() {
+            this.style.backgroundColor = '#FFFF00';
+            this.style.color = '#000';
+        });
+    </script>
+
+</body>
+</html>
